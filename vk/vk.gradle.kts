@@ -1,10 +1,8 @@
 import magik.createGithubPublication
 import magik.github
-import org.gradle.internal.os.OperatingSystem.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 import org.lwjgl.lwjgl
 import org.lwjgl.Lwjgl.Module.*
-import org.lwjgl.Release
 
 plugins {
     kotlin("jvm")
@@ -17,15 +15,14 @@ group = rootProject.group
 version = rootProject.version
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
 
     implementation(projects.core)
     implementation(projects.glfw)
 
-    api("kotlin.graphics:uno:0.7.21")
+    api("kotlin.graphics:uno:0.7.19")
 //    lwjgl {
-//        implementation(jemalloc, glfw, opengl, remotery, stb)
+//        implementation(glfw, vulkan, remotery)
 //        version = Release.latest
 //    }
     val lwjglNatives = "natives-" + when (current()) {
@@ -56,7 +53,6 @@ dependencies {
 	runtimeOnly("org.lwjgl", "lwjgl-stb", classifier = lwjglNatives)
 	runtimeOnly("org.lwjgl", "lwjgl-vma", classifier = lwjglNatives)
 
-    testImplementation("com.github.ajalt:mordant:1.2.1")
     testImplementation("io.kotest:kotest-runner-junit5:5.5.5")
     testImplementation("io.kotest:kotest-assertions-core:5.5.5")
 }

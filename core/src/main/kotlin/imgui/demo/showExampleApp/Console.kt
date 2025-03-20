@@ -41,6 +41,8 @@ import imgui.classes.TextFilter
 import imgui.dsl.popupContextItem
 import uno.kotlin.getValue
 import uno.kotlin.setValue
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.reflect.KMutableProperty0
 import imgui.InputTextFlag as Itf
 import imgui.WindowFlag as Wf
@@ -206,7 +208,7 @@ object Console {
             history += cmdLine
 
             // Process command
-            when (cmdLine.toUpperCase()) {
+            when (cmdLine.uppercase(Locale.getDefault())) {
                 "CLEAR" -> clearLog()
                 "HELP" -> {
                     addLog("Commands:")
@@ -260,8 +262,8 @@ object Console {
 
                                 var i = 0
                                 while ((i < candidates.size) and allCandidatesMatch) {
-                                    if (i == 0) c = candidates[i][matchLen].toUpperCase()
-                                    else if ((c == 0.toChar()) or (c != candidates[i][matchLen].toUpperCase())) allCandidatesMatch =
+                                    if (i == 0) c = candidates[i][matchLen].uppercaseChar()
+                                    else if ((c == 0.toChar()) or (c != candidates[i][matchLen].uppercaseChar())) allCandidatesMatch =
                                         false
                                     ++i
                                 }

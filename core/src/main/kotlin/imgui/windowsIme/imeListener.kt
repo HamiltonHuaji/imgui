@@ -31,15 +31,15 @@ object imeListener : WindowProc() {
         imeListener.window = window
         if (Platform.get() == Platform.WINDOWS) {
             hwnd = window.hwnd
-            glfwProc = GetWindowLongPtr(hwnd.L, GWL_WNDPROC)
-            SetWindowLongPtr(hwnd.L, GWL_WNDPROC, adr.L)
+            glfwProc = GetWindowLongPtr(null, hwnd.L, GWL_WNDPROC)
+            SetWindowLongPtr(null, hwnd.L, GWL_WNDPROC, adr.L)
         }
     }
 
     override fun invoke(hwnd: Long, msg: Int, w: Long, l: Long) = when (msg) {
         WM_DPICHANGED -> {
             with(RECT.create(l)) {
-                SetWindowPos(hwnd, NULL, left(), top(), right() - left(), bottom() - top(), SWP_NOZORDER or SWP_NOACTIVATE)
+                SetWindowPos(null, hwnd, NULL, left(), top(), right() - left(), bottom() - top(), SWP_NOZORDER or SWP_NOACTIVATE)
             }
             NULL
         }

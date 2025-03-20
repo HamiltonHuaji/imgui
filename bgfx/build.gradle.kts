@@ -5,6 +5,7 @@ val moduleName = "$group.${rootProject.name}.bgfx"
 dependencies {
 
     implementation(project(":core"))
+    implementation(platform("org.lwjgl:lwjgl-bom:3.3.6"))
 
     val kx = "com.github.kotlin-graphics"
     implementation("$kx:uno-sdk:${findProperty("unoVersion")}")

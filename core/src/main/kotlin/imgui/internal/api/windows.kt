@@ -12,7 +12,7 @@ import imgui.internal.hashStr
 import imgui.WindowFlag as Wf
 
 
-internal interface windows {
+interface windows {
 
     // Windows
 

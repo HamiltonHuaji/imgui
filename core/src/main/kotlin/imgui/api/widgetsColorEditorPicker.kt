@@ -74,6 +74,7 @@ import imgui.api.widgetsColorEditorPicker.Companion.ids
 import imgui.api.widgetsColorEditorPicker.Companion.renderArrowsForVerticalBar
 import imgui.classes.DrawList
 import imgui.internal.*
+import imgui.internal.api.windows
 import imgui.internal.classes.Rect
 import imgui.internal.classes.Window
 import imgui.internal.sections.DrawFlag
@@ -221,7 +222,7 @@ interface widgetsColorEditorPicker {
 }
 
 inline fun colorEdit4(label: String, x: Float, y: Float, z: Float, w: Float, flags_: ColorEditFlags = none, colSetter: Vec4Setter): Boolean {
-    val window = currentWindow
+    val window = g.currentWindow!!
     if (window.skipItems) return false
 
     val squareSz = frameHeight
