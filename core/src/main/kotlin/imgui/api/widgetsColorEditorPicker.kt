@@ -221,6 +221,7 @@ interface widgetsColorEditorPicker {
     }
 }
 
+@Suppress("NON_PUBLIC_CALL_FROM_PUBLIC_INLINE")
 inline fun colorEdit4(label: String, x: Float, y: Float, z: Float, w: Float, flags_: ColorEditFlags = none, colSetter: Vec4Setter): Boolean {
     val window = g.currentWindow!!
     if (window.skipItems) return false

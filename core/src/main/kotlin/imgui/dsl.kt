@@ -111,6 +111,7 @@ object dsl {
 
     // Parameters stacks (shared)
 
+    @Suppress("NON_PUBLIC_CALL_FROM_PUBLIC_INLINE")
     inline fun withFont(font: Font = ImGui.defaultFont, block: () -> Unit) {
         pushFont(font)
         block()
@@ -516,6 +517,7 @@ object dsl {
 
     // Columns
 
+    @Suppress("NON_PUBLIC_CALL_FROM_PUBLIC_INLINE")
     inline fun columns(strId: String = "", columnsCount: Int, flags: OldColumnFlags = none, block: () -> Unit) {
         beginColumns(strId, columnsCount, flags)
         block()
