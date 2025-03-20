@@ -111,7 +111,7 @@ object dsl {
 
     // Parameters stacks (shared)
 
-    inline fun withFont(font: Font = ImGui.defaultFont, block: () -> Unit) {
+    fun withFont(font: Font = ImGui.defaultFont, block: () -> Unit) {
         pushFont(font)
         block()
         popFont()
@@ -516,7 +516,7 @@ object dsl {
 
     // Columns
 
-    inline fun columns(strId: String = "", columnsCount: Int, flags: OldColumnFlags = none, block: () -> Unit) {
+    fun columns(strId: String = "", columnsCount: Int, flags: OldColumnFlags = none, block: () -> Unit) {
         beginColumns(strId, columnsCount, flags)
         block()
         endColumns()

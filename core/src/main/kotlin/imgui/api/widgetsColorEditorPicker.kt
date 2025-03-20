@@ -221,7 +221,7 @@ interface widgetsColorEditorPicker {
     }
 }
 
-inline fun colorEdit4(label: String, x: Float, y: Float, z: Float, w: Float, flags_: ColorEditFlags = none, colSetter: Vec4Setter): Boolean {
+fun colorEdit4(label: String, x: Float, y: Float, z: Float, w: Float, flags_: ColorEditFlags = none, colSetter: Vec4Setter): Boolean {
     val window = g.currentWindow!!
     if (window.skipItems) return false
 

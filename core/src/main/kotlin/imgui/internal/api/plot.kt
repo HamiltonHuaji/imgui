@@ -29,8 +29,7 @@ import kotlin.math.min
 
 /** Plot */
 
-@PublishedApi
-internal inline fun plotEx(plotType: PlotType, label: String, valuesCount: Int, valuesOffset: Int, overlayText: String,
+fun plotEx(plotType: PlotType, label: String, valuesCount: Int, valuesOffset: Int, overlayText: String,
                            scaleMin_: Float, scaleMax_: Float, sizeArg: Vec2, data: (Int) -> Float): Int {
 
     val g = gImGui

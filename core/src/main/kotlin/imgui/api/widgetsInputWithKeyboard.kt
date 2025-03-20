@@ -201,13 +201,13 @@ inline fun <reified N> input(label: String, pData: KMutableProperty0<N>, step: N
 inline fun <reified N> ImGui.input(label: String, pData: KMutableProperty0<N>, step: N? = null, stepFast: N? = null, format: String? = null, flags: InputTextSingleFlags = none): Boolean where N : Number, N : Comparable<N> =
         numberOps<N>().input(label, pData, step, stepFast, format, flags)
 
-inline fun <reified N> inputN(label: String, components: Int, step: N? = null, stepFast: N? = null, format: String? = null, flags: InputTextSingleFlags = none, properties: (Int) -> KMutableProperty0<N>): Boolean where N : Number, N : Comparable<N> =
+inline fun <reified N> inputN(label: String, components: Int, step: N? = null, stepFast: N? = null, format: String? = null, flags: InputTextSingleFlags = none, crossinline properties: (Int) -> KMutableProperty0<N>): Boolean where N : Number, N : Comparable<N> =
         ImGui.inputN(label, components, step, stepFast, format, flags, properties)
 
-inline fun <reified N> ImGui.inputN(label: String, components: Int, step: N? = null, stepFast: N? = null, format: String? = null, flags: InputTextSingleFlags = none, properties: (Int) -> KMutableProperty0<N>): Boolean where N : Number, N : Comparable<N> =
+inline fun <reified N> ImGui.inputN(label: String, components: Int, step: N? = null, stepFast: N? = null, format: String? = null, flags: InputTextSingleFlags = none, crossinline properties: (Int) -> KMutableProperty0<N>): Boolean where N : Number, N : Comparable<N> =
         numberOps<N>().inputN(label, components, step, stepFast, format, flags, properties)
 
-inline fun <N> NumberOps<N>.inputN(label: String, components: Int, step: N? = null, stepFast: N? = null, format: String? = null, flags: InputTextSingleFlags = none, properties: (Int) -> KMutableProperty0<N>): Boolean where N : Number, N : Comparable<N> =
+inline fun <N> NumberOps<N>.inputN(label: String, components: Int, step: N? = null, stepFast: N? = null, format: String? = null, flags: InputTextSingleFlags = none, crossinline properties: (Int) -> KMutableProperty0<N>): Boolean where N : Number, N : Comparable<N> =
         widgetN(label, components) { i ->
             input("", properties(i), step, stepFast, format, flags)
         }

@@ -312,8 +312,8 @@ internal interface widgetsLowLevelBehaviors {
     /** For 32-bits and larger types, slider bounds are limited to half the natural type range.
      *  So e.g. an integer Slider between INT_MAX-10 and INT_MAX will fail, but an integer Slider between INT_MAX/2-10 and INT_MAX/2 will be ok.
      *  It would be possible to lift that limitation with some work but it doesn't seem to be worth it for sliders. */
-    fun sliderBehavior(bb: Rect, id: ID, pV: FloatArray, pMin: Float, pMax: Float, format: String, flags: SliderFlags, outGrabBb: Rect): Boolean =
-        sliderBehavior(bb, id, pV mutablePropertyAt 0, pMin, pMax, format, flags, outGrabBb)
+//    fun sliderBehavior(bb: Rect, id: ID, pV: FloatArray, pMin: Float, pMax: Float, format: String, flags: SliderFlags, outGrabBb: Rect): Boolean =
+//        sliderBehavior(bb, id, pV mutablePropertyAt 0, pMin, pMax, format, flags, outGrabBb)
 
     //    fun <N> sliderBehavior(bb: Rect, id: ID,
     //                           v: KMutableProperty0<N>,
@@ -627,14 +627,14 @@ internal interface widgetsLowLevelBehaviors {
     }
 }
 
-inline fun <reified N> dragBehavior(id: ID, pV: KMutableProperty0<N>, vSpeed: Float, min: N?, max: N?, format: String, flags: SliderFlags): Boolean where N : Number, N : Comparable<N> =
-    ImGui.dragBehavior(id, pV, vSpeed, min, max, format, flags)
+//inline fun <reified N> dragBehavior(id: ID, pV: KMutableProperty0<N>, vSpeed: Float, min: N?, max: N?, format: String, flags: SliderFlags): Boolean where N : Number, N : Comparable<N> =
+//    ImGui.dragBehavior(id, pV, vSpeed, min, max, format, flags)
 
-inline fun <reified N> ImGui.dragBehavior(id: ID, pV: KMutableProperty0<N>, vSpeed: Float, min: N?, max: N?, format: String, flags: SliderFlags): Boolean where N : Number, N : Comparable<N> =
-    numberFpOps<N, Nothing>().dragBehavior(id, pV, vSpeed, min, max, format, flags)
+//inline fun <reified N> ImGui.dragBehavior(id: ID, pV: KMutableProperty0<N>, vSpeed: Float, min: N?, max: N?, format: String, flags: SliderFlags): Boolean where N : Number, N : Comparable<N> =
+//    numberFpOps<N, Nothing>().dragBehavior(id, pV, vSpeed, min, max, format, flags)
 
-inline fun <reified N> sliderBehavior(bb: Rect, id: ID, pV: KMutableProperty0<N>, min: N, max: N, format: String, flags: SliderFlags, outGrabBb: Rect): Boolean where N : Number, N : Comparable<N> =
-    ImGui.sliderBehavior(bb, id, pV, min, max, format, flags, outGrabBb)
+//inline fun <reified N> sliderBehavior(bb: Rect, id: ID, pV: KMutableProperty0<N>, min: N, max: N, format: String, flags: SliderFlags, outGrabBb: Rect): Boolean where N : Number, N : Comparable<N> =
+//    ImGui.sliderBehavior(bb, id, pV, min, max, format, flags, outGrabBb)
 
-inline fun <reified N> ImGui.sliderBehavior(bb: Rect, id: ID, pV: KMutableProperty0<N>, min: N, max: N, format: String, flags: SliderFlags, outGrabBb: Rect): Boolean where N : Number, N : Comparable<N> =
-    numberFpOps<N, Nothing>().sliderBehavior(bb, id, pV, min, max, format, flags, outGrabBb)
+//inline fun <reified N> ImGui.sliderBehavior(bb: Rect, id: ID, pV: KMutableProperty0<N>, min: N, max: N, format: String, flags: SliderFlags, outGrabBb: Rect): Boolean where N : Number, N : Comparable<N> =
+//    numberFpOps<N, Nothing>().sliderBehavior(bb, id, pV, min, max, format, flags, outGrabBb)

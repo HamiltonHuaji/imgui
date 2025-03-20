@@ -39,7 +39,7 @@ inline fun plotLines(label: String,
                      scaleMin: Float = Float.MAX_VALUE,
                      scaleMax: Float = Float.MAX_VALUE,
                      graphSize: Vec2 = Vec2(),
-                     valuesGetter: (idx: Int) -> Float) = plotEx(PlotType.Lines, label, valuesCount, valuesOffset, overlayText, scaleMin, scaleMax, graphSize, valuesGetter)
+                     noinline valuesGetter: (idx: Int) -> Float) = plotEx(PlotType.Lines, label, valuesCount, valuesOffset, overlayText, scaleMin, scaleMax, graphSize, valuesGetter)
 
 inline fun plotHistogram(label: String,
                          valuesCount: Int,
@@ -48,4 +48,4 @@ inline fun plotHistogram(label: String,
                          scaleMin: Float = Float.MAX_VALUE,
                          scaleMax: Float = Float.MAX_VALUE,
                          graphSize: Vec2 = Vec2(),
-                         valuesGetter: (idx: Int) -> Float) = plotEx(PlotType.Histogram, label, valuesCount, valuesOffset, overlayText, scaleMin, scaleMax, graphSize, valuesGetter)
+                         noinline valuesGetter: (idx: Int) -> Float) = plotEx(PlotType.Histogram, label, valuesCount, valuesOffset, overlayText, scaleMin, scaleMax, graphSize, valuesGetter)

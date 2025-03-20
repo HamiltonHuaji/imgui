@@ -436,7 +436,7 @@ internal interface templateFunctions {
 
 
 // ~SliderScalarN
-inline fun widgetN(label: String, components: Int, widgets: (Int) -> Boolean): Boolean {
+fun widgetN(label: String, components: Int, widgets: (Int) -> Boolean): Boolean {
     if (currentWindow.skipItems)
         return false
 
